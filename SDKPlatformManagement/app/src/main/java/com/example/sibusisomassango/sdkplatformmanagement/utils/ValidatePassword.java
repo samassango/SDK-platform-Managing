@@ -1,7 +1,7 @@
 package com.example.sibusisomassango.sdkplatformmanagement.utils;
 
 /**
- * Created by sibusisomassango on 2016/10/01.
+ * Created by sibusisomassango on 2016/10/03.
  */
 public class ValidatePassword {
     private String password;

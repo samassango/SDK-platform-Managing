@@ -36,11 +36,10 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="Reset"
             android:id="@+id/btnReset"
             android:layout_below="@+id/txtTitle"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:background="@android:drawable/ic_delete"/>
+            android:layout_alignParentEnd="true"/>
     </RelativeLayout>
 </LinearLayout>

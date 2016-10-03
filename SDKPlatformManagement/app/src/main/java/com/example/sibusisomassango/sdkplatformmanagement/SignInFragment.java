@@ -26,6 +26,7 @@ import java.util.List;
 public class SignInFragment extends Fragment {
     private SDKManagementHelper sdkDb;
     private SDKManagerListAdapter sdkManagerListAdapter;
+    List<SDKManagerItem> sdkList;
     public SignInFragment(){
 
     }
@@ -42,20 +43,16 @@ public class SignInFragment extends Fragment {
 
         sdkDb = new SDKManagementHelper(getActivity());
 
-        List<SDKManagerItem> sdkList = sdkDb.getSDKList();
-        if(sdkList ==null){
-            createInitialData();
-        }
         sdkList = sdkDb.getSDKList();
-        if(sdkList != null) {
+        //if(sdkList != null) {
             sdkManagerListAdapter = new SDKManagerListAdapter(sdkList);
             RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
             holder.recycler_view.setLayoutManager(mLayoutManager);
             holder.recycler_view.setItemAnimator(new DefaultItemAnimator());
             holder.recycler_view.setAdapter(sdkManagerListAdapter);
-        }else {
-            Toast.makeText(getActivity().getApplicationContext(),"list Empty",Toast.LENGTH_SHORT).show();
-        }
+//        }else {
+//            Toast.makeText(getActivity().getApplicationContext(),"list Empty",Toast.LENGTH_SHORT).show();
+//        }
         holder.btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,12 +63,19 @@ public class SignInFragment extends Fragment {
 
                     long _id = sdkDb.insertSDK(title);
                     //sdkDb.close();
+                    sdkList = sdkDb.getSDKList();
+                    sdkManagerListAdapter = new SDKManagerListAdapter(sdkList);
+                    RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+                    holder.recycler_view.setLayoutManager(mLayoutManager);
+                    holder.recycler_view.setItemAnimator(new DefaultItemAnimator());
+                    holder.recycler_view.setAdapter(sdkManagerListAdapter);
+                   // sdkManagerListAdapter.notifyDataSetChanged();
 
                     if(_id>0){
                         holder.txtTitle.setText("");
                         Toast.makeText(getActivity().getApplicationContext(),"sdk added successful",Toast.LENGTH_SHORT).show();
                     }
-                    sdkManagerListAdapter.notifyDataSetChanged();
+
                 }
             }
         });
@@ -79,21 +83,19 @@ public class SignInFragment extends Fragment {
         holder.btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+              sdkDb.deleteAll();
+                sdkList = sdkDb.getSDKList();
+                sdkManagerListAdapter = new SDKManagerListAdapter(sdkList);
+                RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+                holder.recycler_view.setLayoutManager(mLayoutManager);
+                holder.recycler_view.setItemAnimator(new DefaultItemAnimator());
+                holder.recycler_view.setAdapter(sdkManagerListAdapter);
             }
         });
 
         return rootView;
     }
-   public void createInitialData(){
-       sdkDb.insertSDK("SDK Tools, Revision 25.1.6 (May 2016)");
-       sdkDb.insertSDK("SDK Tools, Revision 25.0.0 (April 2016)");
-       sdkDb.insertSDK("SDK Platform-tools, Revision 23.1.0 (December 2015)");
-       sdkDb.insertSDK("SDK Tools, Revision 24.4.1 (October 2015)");
-       sdkDb.insertSDK("SDK Tools, Revision 24.4.0 (October 2015)");
-       sdkDb.insertSDK("SDK Tools, Revision 24.3.4 (August 2015)");
-       sdkDb.insertSDK("SDK Tools, Revision 24.3.3 (June 2015)");
-    }
+
     public static class ViewHolder{
         RecyclerView recycler_view;
         EditText txtTitle;

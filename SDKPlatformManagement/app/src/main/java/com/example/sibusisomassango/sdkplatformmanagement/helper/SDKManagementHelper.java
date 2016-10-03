@@ -63,4 +63,8 @@ public class SDKManagementHelper extends SQLiteOpenHelper {
 
         return SDKManagerList;
     }
+    public void deleteAll(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        db.delete(SDK_TABLE,null,null);
+    }
 }

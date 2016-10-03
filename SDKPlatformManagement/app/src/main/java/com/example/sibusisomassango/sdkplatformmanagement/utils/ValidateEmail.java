@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created by sibusisomassango on 2016/10/01.
+ * Created by sibusisomassango on 2016/10/03.
  */
 public class ValidateEmail {
     private String emailAddress;
