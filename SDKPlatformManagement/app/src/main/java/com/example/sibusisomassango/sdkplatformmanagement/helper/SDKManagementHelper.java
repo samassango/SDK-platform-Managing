@@ -57,7 +57,7 @@ public class SDKManagementHelper extends SQLiteOpenHelper {
         results.moveToFirst();
 
         while(results.isAfterLast() == false){
-            SDKManagerList.add(new SDKManagerItem(results.getString(results.getColumnIndex(KEY_TITLE))));
+            SDKManagerList.add(new SDKManagerItem(results.getString(results.getColumnIndex(KEY_TITLE)),results.getString(results.getColumnIndex(KEY_DATE))));
             results.moveToNext();
         }
 

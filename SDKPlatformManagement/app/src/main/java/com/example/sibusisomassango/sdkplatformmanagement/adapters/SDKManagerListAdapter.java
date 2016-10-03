@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.example.sibusisomassango.sdkplatformmanagement.R;
 import com.example.sibusisomassango.sdkplatformmanagement.utils.SDKManagerItem;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -35,6 +37,16 @@ public class SDKManagerListAdapter extends RecyclerView.Adapter<SDKManagerListAd
         SDKManagerItem sdkManagerItem = sdkManagerList.get(position);
 
         sdkListViewHolder.sdkTitle.setText(sdkManagerItem.getSdktitle());
+
+        sdkListViewHolder.sdkDate.setText(convertMillisecondsToDate(sdkManagerItem.getSdkDate()));
+    }
+    public String convertMillisecondsToDate(String milliSeconds){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date =new Date();
+        long milliSec = Long.parseLong(milliSeconds);
+        date.setTime(milliSec);
+
+        return  simpleDateFormat.format(date);
     }
 
     @Override
@@ -43,11 +55,12 @@ public class SDKManagerListAdapter extends RecyclerView.Adapter<SDKManagerListAd
     }
 
     public class SDKListViewHolder extends RecyclerView.ViewHolder{
-        public TextView sdkTitle;
+        public TextView sdkTitle,sdkDate;
         public SDKListViewHolder(View itemView) {
             super(itemView);
 
             sdkTitle =(TextView) itemView.findViewById(R.id.txtTitle);
+            sdkDate = (TextView) itemView.findViewById(R.id.txtDate);
 
         }
     }

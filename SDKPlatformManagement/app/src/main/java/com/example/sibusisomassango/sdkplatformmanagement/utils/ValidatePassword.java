@@ -1,5 +1,10 @@
 package com.example.sibusisomassango.sdkplatformmanagement.utils;
 
+import android.util.Log;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Created by sibusisomassango on 2016/10/03.
  */
@@ -36,9 +41,13 @@ public class ValidatePassword {
                       }
               }
        }
-        //password.matches("[^A-Za-z0-9 ]") &
-//password require it's length to be 11 or more, should contain digits, uppercase, lowercase, and special character.
-        if( digits >0 && upperCase >0 && lowerCase >0 ){
+        //check whether the password contain any special character
+        Pattern pattern = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(password);
+        boolean hasSpecialCharacter = matcher.find();
+
+       //password require it's length to be 11 or more, should contain digits, uppercase, lowercase, and special character.
+        if(hasSpecialCharacter && digits >0 && upperCase >0 && lowerCase >0 ){
             isValidPassword = true;
         }
 

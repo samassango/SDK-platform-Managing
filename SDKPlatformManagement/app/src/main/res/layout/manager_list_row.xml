@@ -12,5 +12,13 @@
         android:id="@+id/txtTitle"
         android:textSize="20sp" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/txtDate"
+        android:layout_gravity="center_horizontal|right" />
+
 
 </LinearLayout>

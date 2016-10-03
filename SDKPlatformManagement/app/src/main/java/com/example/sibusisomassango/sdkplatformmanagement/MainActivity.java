@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                    fragmentIntent.putExtra("INTENT_TYPE","signIn");
                    startActivity(fragmentIntent);
                }else{
-                   error.setText("Username/password combination is not valid Email>>"+isValidEmailAddress(emailAddress) +" Password>>"+isValidPassword(password));
+                   error.setText("Username/password combination is not valid");
                }
             }
         });

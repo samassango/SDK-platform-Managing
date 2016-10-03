@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,8 @@ import com.example.sibusisomassango.sdkplatformmanagement.helper.SDKManagementHe
 import com.example.sibusisomassango.sdkplatformmanagement.utils.SDKManagerItem;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by sibusisomassango on 2016/10/03.
@@ -83,6 +86,7 @@ public class SignInFragment extends Fragment {
         holder.btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
               sdkDb.deleteAll();
                 sdkList = sdkDb.getSDKList();
                 sdkManagerListAdapter = new SDKManagerListAdapter(sdkList);
@@ -99,6 +103,7 @@ public class SignInFragment extends Fragment {
     public static class ViewHolder{
         RecyclerView recycler_view;
         EditText txtTitle;
+        TextView txtDate;
         Button btnAdd,btnReset;
     }
 }
