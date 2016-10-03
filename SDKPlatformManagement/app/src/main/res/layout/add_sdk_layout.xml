@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:text="Add"
                 android:id="@+id/btnAdd"
-                android:background="#40d02d"/>
+                android:background="@color/_button_color"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:text="Reset"
                 android:id="@+id/btnReset"
-                android:background="#40d02d"/>
+                android:background="@color/_button_color"/>
             </RelativeLayout>
     </RelativeLayout>
 </LinearLayout>

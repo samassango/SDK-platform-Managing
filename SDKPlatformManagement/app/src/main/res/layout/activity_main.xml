@@ -79,7 +79,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignParentLeft="true"
                     android:layout_marginTop="10dp"
-                    android:background="#40d02d" />
+                    android:background="@color/_button_color" />
 
                 <Button
                     android:layout_width="wrap_content"
@@ -93,7 +93,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
-                    android:background="#40d02d" />
+                    android:background="@color/_button_color" />
 
                 <TextView
                     android:layout_width="wrap_content"

@@ -47,15 +47,11 @@ public class SignInFragment extends Fragment {
         sdkDb = new SDKManagementHelper(getActivity());
 
         sdkList = sdkDb.getSDKList();
-        //if(sdkList != null) {
             sdkManagerListAdapter = new SDKManagerListAdapter(sdkList);
             RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
             holder.recycler_view.setLayoutManager(mLayoutManager);
-            holder.recycler_view.setItemAnimator(new DefaultItemAnimator());
             holder.recycler_view.setAdapter(sdkManagerListAdapter);
-//        }else {
-//            Toast.makeText(getActivity().getApplicationContext(),"list Empty",Toast.LENGTH_SHORT).show();
-//        }
+
         holder.btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,9 +66,9 @@ public class SignInFragment extends Fragment {
                     sdkManagerListAdapter = new SDKManagerListAdapter(sdkList);
                     RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
                     holder.recycler_view.setLayoutManager(mLayoutManager);
-                    holder.recycler_view.setItemAnimator(new DefaultItemAnimator());
                     holder.recycler_view.setAdapter(sdkManagerListAdapter);
-                   // sdkManagerListAdapter.notifyDataSetChanged();
+
+                    holder.recycler_view.scrollToPosition(sdkList.size());
 
                     if(_id>0){
                         holder.txtTitle.setText("");
