@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SDK Platform Management</string>
+    <string name="email_address_field">Username</string>
+    <string name="user_password_field">Password</string>
+    <string name="user_signup_button">SignUp</string>
+    <string name="user_signin_button">Username</string>
+</resources>
