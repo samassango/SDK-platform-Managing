@@ -1,20 +1,14 @@
 package com.example.sibusisomassango.sdkplatformmanagement;
 
 import android.content.Intent;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.sibusisomassango.sdkplatformmanagement.utils.ValidateEmail;
-import com.example.sibusisomassango.sdkplatformmanagement.utils.ValidatePassword;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -69,8 +63,8 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean isValidPassword(String password) {
         boolean isValidPassword =false;
-        ValidatePassword isValidPasswordCheck = new ValidatePassword(password);
-        if(isValidPasswordCheck.isValidPassword()){
+
+        if(password.equals("magic")){
             isValidPassword = true;
         }
         return isValidPassword;
