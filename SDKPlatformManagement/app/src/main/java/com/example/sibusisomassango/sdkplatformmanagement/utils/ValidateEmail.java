@@ -22,7 +22,6 @@ public class ValidateEmail {
         if(emailAddress.matches(strPattern)){
             isValidEmail = true;
         }
-
         return isValidEmail;
     }
 

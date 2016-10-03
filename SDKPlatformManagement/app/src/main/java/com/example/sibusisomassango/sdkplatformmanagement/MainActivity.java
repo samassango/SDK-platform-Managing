@@ -47,9 +47,11 @@ public class MainActivity extends AppCompatActivity {
                 String password = txtPassword.getText().toString();
 
                if(isValidEmailAddress(emailAddress) && isValidPassword(password)){
-
+                   Intent fragmentIntent = new Intent(getApplicationContext(),FragmentActivity.class);
+                   fragmentIntent.putExtra("INTENT_TYPE","signIn");
+                   startActivity(fragmentIntent);
                }else{
-                   error.setText("Username/password combination is not valid");
+                   error.setText("Username/password combination is not valid Email>>"+isValidEmailAddress(emailAddress) +" Password>>"+isValidPassword(password));
                }
             }
         });
@@ -59,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent fragmentIntent = new Intent(getApplicationContext(),FragmentActivity.class);
+                fragmentIntent.putExtra("INTENT_TYPE","signUp");
                 startActivity(fragmentIntent);
             }
         });
